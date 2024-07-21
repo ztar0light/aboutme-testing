@@ -63,18 +63,18 @@
             box-sizing: border-box;
         }
         .banner {
-            width: 100%;
-            height: calc(150px * 5 / 7); /* Reduced height by 2/7 */
+            width: calc(100% + 4px); /* Adjusted to fit within border */
+            height: 86px; /* Adjusted height */
             background-color: var(--accent-color);
             border-top-left-radius: 18px;
             border-top-right-radius: 18px;
             border-bottom: 2px solid var(--banner-border-color);
-            margin: -2px -2px 40px -2px; /* Consistent spacing below banner */
+            margin: -2px -2px 20px -2px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .short-banner {
-            height: calc(75px * 5 / 7); /* Reduced height by 2/7 */
-            margin-bottom: 40px; /* Consistent spacing below banner */
+            height: 43px; /* Adjusted height */
+            margin-bottom: 20px;
         }
         #profilePicture {
             position: relative;
@@ -244,7 +244,7 @@
             setTheme(currentTheme === 'dark' ? 'light' : 'dark');
         });
 
-        const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         const savedTheme = localStorage.getItem('theme') || (userPrefersDark ? 'dark' : 'light');
         setTheme(savedTheme);
     </script>
