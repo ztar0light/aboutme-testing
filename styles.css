@@ -80,7 +80,7 @@ body {
 }
 
 .tall-banner {
-    top: -65px
+    margin-bottom: 45px
     height: 50%; /* Ensure 50/50 split */
 }
 
