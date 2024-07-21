@@ -11,8 +11,25 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             overflow-x: hidden; /* Prevent horizontal scrolling */
-            background-color: #f4f4f9;
-            color: #333;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        :root {
+            --background-color: #f4f4f9;
+            --text-color: #333;
+            --accent-color: #1a237e; /* Navy blue */
+            --button-bg-color: #007bff;
+            --button-text-color: white;
+            --button-hover-bg-color: #0056b3;
+        }
+
+        [data-theme="dark"] {
+            --background-color: #333;
+            --text-color: #f4f4f9;
+            --button-bg-color: #1a237e;
+            --button-hover-bg-color: #0d1b5e;
         }
 
         #contentContainer {
@@ -43,15 +60,16 @@
 
         #backButton {
             text-decoration: none;
-            color: #333;
-            background-color: #f4f4f9;
+            color: var(--button-text-color);
+            background-color: var(--button-bg-color);
             padding: 10px 20px;
             border-radius: 5px;
             border: 1px solid #ccc;
+            transition: background-color 0.3s;
         }
 
         #backButton:hover {
-            background-color: #e2e2e2;
+            background-color: var(--button-hover-bg-color);
         }
 
         /* Styles for rounded rectangle sections */
@@ -59,8 +77,9 @@
             border-radius: 10px;
             border: 1px solid #ccc;
             padding: 20px;
-            background-color: #fff;
+            background-color: var(--background-color);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
         }
 
         /* Styles for each section */
@@ -76,21 +95,23 @@
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
-            background-color: #f9f9f9;
+            background-color: var(--background-color);
+            transition: background-color 0.3s;
         }
 
         .buttonBar .button {
             text-decoration: none;
-            color: white;
-            background-color: #007bff;
+            color: var(--button-text-color);
+            background-color: var(--button-bg-color);
             padding: 10px 20px;
             border-radius: 5px;
             margin: 5px;
             display: inline-block;
+            transition: background-color 0.3s;
         }
 
         .buttonBar .button:hover {
-            background-color: #0056b3;
+            background-color: var(--button-hover-bg-color);
         }
 
         /* Styles for the profile picture */
@@ -117,11 +138,35 @@
                 margin: 3px;
             }
         }
+
+        /* Dark mode switch button */
+        #themeSwitchContainer {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        #themeSwitch {
+            background-color: var(--button-bg-color);
+            color: var(--button-text-color);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #themeSwitch:hover {
+            background-color: var(--button-hover-bg-color);
+        }
     </style>
 </head>
 <body>
     <div id="backButtonContainer">
         <a id="backButton" href="#">Back</a>
+    </div>
+    <div id="themeSwitchContainer">
+        <button id="themeSwitch">Switch Theme</button>
     </div>
     <div id="contentContainer">
         <div class="section">
@@ -194,6 +239,29 @@
             window.close();
         }
         document.getElementById("backButton").addEventListener("click", handleBackButtonClick);
+
+        // Theme switch functionality
+        const themeSwitch = document.getElementById('themeSwitch');
+        const body = document.body;
+
+        function setTheme(theme) {
+            body.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        }
+
+        themeSwitch.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                setTheme('light');
+            } else {
+                setTheme('dark');
+            }
+        });
+
+        // Automatically set theme based on user's system preference
+        const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const savedTheme = localStorage.getItem('theme') || (userPrefersDark ? 'dark' : 'light');
+        setTheme(savedTheme);
     </script>
 </body>
 </html>
