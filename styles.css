@@ -1,52 +1,120 @@
-/* Base Styles */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
-    padding: 0;
+    overflow: hidden;
     background-color: var(--background-color);
     color: var(--text-color);
     transition: background-color 0.3s, color 0.3s;
 }
 
 :root {
-    --background-color: #ffffff;
-    --text-color: #333333;
-    --accent-color: #007bff; /* Primary Blue */
-    --border-color: #cccccc;
-    --banner-border-color: #0056b3; /* Darker Blue for Banner */
-    --button-bg-color: #007bff;
-    --button-text-color: #ffffff;
-    --button-hover-bg-color: #0056b3;
+    --background-color: #f4f4f9;
+    --text-color: #333;
+    --accent-color: #b0c4de;
+    --border-color: #a0b3c3;
+    --banner-border-color: #8da0b3;
+    --button-bg-color: #b0c4de;
+    --button-text-color: #333;
+    --button-hover-bg-color: #9eb2cd;
 }
 
 [data-theme="dark"] {
-    --background-color: #1e1e1e;
-    --text-color: #e0e0e0;
-    --border-color: #444444;
-    --banner-border-color: #333333;
-    --button-bg-color: #0056b3;
-    --button-hover-bg-color: #003d7a;
+    --background-color: #333;
+    --text-color: #f4f4f9;
+    --border-color: #888;
+    --banner-border-color: #666;
 }
 
-/* Header Styles */
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: var(--background-color);
-    padding: 10px;
+#contentContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+.section {
+    width: 100vw;
+    height: 100vh;
+    scroll-snap-align: start;
+    flex-shrink: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.header-content {
-    display: flex;
-    justify-content: space-between;
+.section-content {
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    background-color: var(--background-color);
+    border: 2px solid var(--border-color);
+    border-radius: 20px;
+    padding: 40px 20px 20px;
+    transition: background-color 0.3s, border-color 0.3s;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.banner-container {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    overflow: hidden;
+}
+
+.banner {
     width: 100%;
-    max-width: 1200px;
+    height: 86px; /* Adjusted height */
+    background-color: var(--accent-color);
+    border-bottom: 2px solid var(--banner-border-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.short-banner {
+    height: 43px; /* Adjusted height */
+}
+
+#profilePicture {
+    position: relative;
+    top: -70px; /* Higher placement */
+    margin-bottom: -70px;
+}
+
+#profilePicture img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    border: 4px solid var(--background-color);
+}
+
+h1, h2 {
+    margin-top: 20px;
+}
+
+p {
+    margin-top: 10px;
+}
+
+#backButtonContainer, #themeSwitchContainer {
+    position: absolute;
+    top: 10px;
+    padding: 0 20px; /* Match padding for consistency */
+}
+
+#backButtonContainer {
+    left: 10px;
+}
+
+#themeSwitchContainer {
+    right: 10px;
 }
 
 #backButton, #themeSwitch {
@@ -54,10 +122,10 @@ header {
     color: var(--button-text-color);
     background-color: var(--button-bg-color);
     padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-family: Arial, sans-serif;
-    transition: background-color 0.3s;
+    border: 2px solid var(--border-color);
+    border-radius: 20px;
+    font-family: monospace;
+    transition: background-color 0.3s, border-color 0.3s;
     cursor: pointer;
 }
 
@@ -65,125 +133,49 @@ header {
     background-color: var(--button-hover-bg-color);
 }
 
-/* Main Content Styles */
-main {
-    margin-top: 60px; /* Space for header */
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-/* Hero Section Styles */
-.hero {
-    text-align: center;
-    background-color: var(--accent-color);
-    color: var(--background-color);
-    padding: 40px 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-#profilePicture {
-    margin-bottom: 20px;
-}
-
-#profilePicture img {
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    border: 4px solid var(--background-color);
-}
-
-h1, h2 {
-    margin: 20px 0;
-}
-
-p {
-    margin: 10px 0;
-}
-
-/* Content Section Styles */
-.content {
-    margin-bottom: 40px;
-}
-
-.content-container {
-    background-color: var(--background-color);
-    border: 2px solid var(--border-color);
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Ensure content stays within borders */
-}
-
-.banner {
-    width: calc(100% + 4px); /* Extend beyond borders to fit */
-    height: 120px; /* Taller banner */
-    background-color: var(--accent-color);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom: 2px solid var(--banner-border-color);
-    margin: -2px -2px 20px -2px; /* Align with borders */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.short-banner {
-    height: 60px; /* Taller banner for shorter sections */
-    margin-bottom: 20px;
-}
-
-/* Button Bar Styles */
-.buttonBar {
-    display: flex;
-    flex-direction: column; /* Stack buttons vertically */
-    align-items: center;
-}
-
 .buttonBar .button {
     text-decoration: none;
     color: var(--button-text-color);
     background-color: var(--button-bg-color);
-    padding: 10px 15px;
-    border-radius: 5px;
-    border: none;
-    margin: 5px 0; /* Vertical margin for stacked buttons */
-    transition: background-color 0.3s;
-    display: block;
-    width: 100%; /* Full width for better layout */
-    max-width: 300px; /* Maximum button width */
-    text-align: center;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 2px solid var(--border-color);
+    margin: 5px;
+    display: inline-block;
+    transition: background-color 0.3s, border-color 0.3s;
+    font-family: monospace;
 }
 
 .buttonBar .button:hover {
     background-color: var(--button-hover-bg-color);
 }
 
-/* Footer Styles */
-footer {
+#footer {
+    position: absolute;
+    bottom: 20px; /* Adjusted to be near the very bottom */
+    width: 100%;
     text-align: center;
-    padding: 20px;
-    background-color: var(--background-color);
-    border-top: 2px solid var(--border-color);
 }
 
-/* Responsive Styles */
 @media (max-width: 600px) {
     #profilePicture img {
         width: 100px;
         height: 100px;
     }
-    .banner, .short-banner {
-        height: auto; /* Adjust height for smaller screens */
+    .section {
+        padding: 10px;
     }
     .buttonBar .button {
-        padding: 8px 12px;
+        padding: 8px 16px;
+        margin: 3px;
+    }
+    .banner {
+        height: calc(100px * 5 / 7); /* Adjusted height for smaller screens */
+    }
+    .short-banner {
+        height: calc(50px * 5 / 7); /* Adjusted height for smaller screens */
+    }
+    #profilePicture {
+        top: -60px; /* Higher placement for smaller screens */
     }
 }
