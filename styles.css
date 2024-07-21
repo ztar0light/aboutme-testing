@@ -48,8 +48,8 @@ body {
 }
 
 .section-content {
-    width: 100%;
-    max-width: 400px;
+    width: 80%;
+    max-width: 600px;
     text-align: center;
     background-color: var(--background-color);
     border: 2px solid var(--border-color);
