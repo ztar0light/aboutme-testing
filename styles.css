@@ -88,8 +88,8 @@ body {
 
 #profilePicture {
     position: relative;
-    top: -90px; /* Higher placement */
-    margin-bottom: -90px;
+    top: -70px; /* Higher placement */
+    margin-bottom: -70px;
 }
 
 #profilePicture img {
