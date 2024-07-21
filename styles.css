@@ -62,7 +62,7 @@ body {
 
 .banner-container {
     position: absolute;
-    top: -2px;
+    top: 0;
     left: -2px;
     right: -2px;
     border-top-left-radius: 18px;
@@ -71,24 +71,20 @@ body {
 }
 
 .banner {
-    width: 100%;
+    width: calc(100% + 4px); /* Adjusted to fit within border */
     height: 50%; /* Ensure 50/50 split */
     background-color: var(--accent-color);
     border-bottom: 2px solid var(--banner-border-color);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.tall-banner {
-    height: 50%; /* Ensure 50/50 split */
-}
-
 .short-banner {
-    height: calc(50% - 20px); /* Adjusted height for consistency */
+    height: 25%; /* Adjusted height */
 }
 
 #profilePicture {
     position: relative;
-    top: -70px; /* Higher placement */
+    top: -90px; /* Higher placement */
     margin-bottom: -70px;
 }
 
@@ -174,10 +170,10 @@ p {
         margin: 3px;
     }
     .banner {
-        height: calc(50% - 20px); /* Adjusted height for smaller screens */
+        height: 50%; /* Adjusted height for smaller screens */
     }
     .short-banner {
-        height: calc(25% - 20px); /* Adjusted height for smaller screens */
+        height: 25%; /* Adjusted height for smaller screens */
     }
     #profilePicture {
         top: -60px; /* Higher placement for smaller screens */
