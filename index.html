@@ -10,7 +10,7 @@
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
+            overflow: hidden; /* Prevent vertical scrolling */
             background-color: var(--background-color);
             color: var(--text-color);
             transition: background-color 0.3s, color 0.3s;
@@ -36,6 +36,7 @@
             display: flex;
             flex-direction: row;
             width: 100vw;
+            height: 100vh;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
@@ -50,6 +51,13 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .section-content {
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
         }
 
         /* Styles for the back button */
@@ -73,73 +81,6 @@
             background-color: var(--button-hover-bg-color);
         }
 
-        /* Styles for rounded rectangle sections */
-        .roundedRect {
-            border-radius: 10px;
-            border: 1px solid #ccc;
-            padding: 20px;
-            background-color: var(--background-color);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s;
-        }
-
-        /* Styles for each section */
-        .line {
-            width: 100%;
-            height: 1px;
-            background-color: #ddd;
-            margin: 20px 0;
-        }
-
-        /* Styles for small text boxes */
-        .smallTextBox {
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: var(--background-color);
-            transition: background-color 0.3s;
-        }
-
-        .buttonBar .button {
-            text-decoration: none;
-            color: var(--button-text-color);
-            background-color: var(--button-bg-color);
-            padding: 10px 20px;
-            border-radius: 5px;
-            margin: 5px;
-            display: inline-block;
-            transition: background-color 0.3s;
-        }
-
-        .buttonBar .button:hover {
-            background-color: var(--button-hover-bg-color);
-        }
-
-        /* Styles for the profile picture */
-        #profilePicture img {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            border: 2px solid #ddd;
-        }
-
-        /* Responsive design adjustments */
-        @media (max-width: 600px) {
-            #profilePicture img {
-                width: 100px;
-                height: 100px;
-            }
-
-            .section {
-                padding: 10px;
-            }
-
-            .buttonBar .button {
-                padding: 8px 16px;
-                margin: 3px;
-            }
-        }
-
         /* Dark mode switch button */
         #themeSwitchContainer {
             position: absolute;
@@ -160,6 +101,47 @@
         #themeSwitch:hover {
             background-color: var(--button-hover-bg-color);
         }
+
+        /* Profile Picture */
+        #profilePicture img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            border: 2px solid #ddd;
+        }
+
+        /* Button bar styles */
+        .buttonBar .button {
+            text-decoration: none;
+            color: var(--button-text-color);
+            background-color: var(--button-bg-color);
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 5px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .buttonBar .button:hover {
+            background-color: var(--button-hover-bg-color);
+        }
+
+        /* Responsive design adjustments */
+        @media (max-width: 600px) {
+            #profilePicture img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .section {
+                padding: 10px;
+            }
+
+            .buttonBar .button {
+                padding: 8px 16px;
+                margin: 3px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -171,66 +153,54 @@
     </div>
     <div id="contentContainer">
         <div class="section">
-            <div class="roundedRect">
-                <div id="banner1"></div>
+            <div class="section-content">
                 <div id="profilePicture">
                     <img src="assets/pfp.png" alt="Profile Picture">
                 </div>
-                <div id="title">
-                    <h1>Hey, I'm Ztarlight</h1>
-                    <div class="halfOpaque">
-                        <p><b>ztar0light on discord</b></p>
-                    </div>
-                </div>
-                <div class="line"></div>
-                <div class="buttonSection">
-                    <div class="smallTextBox">
-                        <div class="buttonBar">
-                            <a href="https://docs.google.com" class="button">Google Docs</a>
-                            <a href="https://sheets.google.com" class="button">Google Sheets</a>
-                            <a href="https://slides.google.com" class="button">Google Slides</a>
-                            <a href="https://classroom.google.com" class="button">Google Classroom</a>
-                            <p><strong>*google apps just placeholders</strong></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="line"></div>
-                <div class="aboutMeSection">
-                    <div class="smallTextBox">
-                        <h2>About me</h2>
-                        <p>im just chillin'.</p>
-                    </div>
-                </div>
-                <div class="line"></div>
-                <div class="workingOnSection">
-                    <div class="smallTextBox">
-                        <h2>What I'm working on</h2>
-                        <p>This dang website</p>
-                        <ul>
-                            <li><del>box to put all this text in</del></li>
-                            <li><del>put in pfp like solo.to</del></li>
-                            <li>social media link buttons</li>
-                            <li>pictures? <i>maybe</i></li>
-                        </ul>
-                        <p>Drawing anime style</p>
-                        <ul>
-                            <li><del>basic head</del></li>
-                            <li>hair stiffness</li>
-                            <li>shading</li>
-                            <li><i>help</i></li>
-                        </ul>
-                        <p>Typing</p>
-                        <ul>
-                            <li><del>qwerty</del></li>
-                            <li>workman</li>
-                            <li>steno</li>
-                        </ul>
-                    </div>
+                <h1>Hey, I'm Ztarlight</h1>
+                <p><b>ztar0light on discord</b></p>
+                <div class="buttonBar">
+                    <a href="https://docs.google.com" class="button">Google Docs</a>
+                    <a href="https://sheets.google.com" class="button">Google Sheets</a>
+                    <a href="https://slides.google.com" class="button">Google Slides</a>
+                    <a href="https://classroom.google.com" class="button">Google Classroom</a>
+                    <p><strong>*google apps just placeholders</strong></p>
                 </div>
             </div>
         </div>
         <div class="section">
-            <div id="footer">
+            <div class="section-content">
+                <h2>About me</h2>
+                <p>im just chillin'.</p>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-content">
+                <h2>What I'm working on</h2>
+                <p>This dang website</p>
+                <ul>
+                    <li><del>box to put all this text in</del></li>
+                    <li><del>put in pfp like solo.to</del></li>
+                    <li>social media link buttons</li>
+                    <li>pictures? <i>maybe</i></li>
+                </ul>
+                <p>Drawing anime style</p>
+                <ul>
+                    <li><del>basic head</del></li>
+                    <li>hair stiffness</li>
+                    <li>shading</li>
+                    <li><i>help</i></li>
+                </ul>
+                <p>Typing</p>
+                <ul>
+                    <li><del>qwerty</del></li>
+                    <li>workman</li>
+                    <li>steno</li>
+                </ul>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-content">
                 <p><b>This page is a work in progress.</b></p>
             </div>
         </div>
