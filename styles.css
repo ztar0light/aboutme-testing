@@ -83,15 +83,20 @@ main {
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
+    position: relative;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensure content stays within borders */
 }
 
 .banner {
-    width: 100%;
+    width: calc(100% + 4px); /* Extend beyond borders to fit */
     height: 80px;
     background-color: var(--accent-color);
-    border-radius: 5px;
-    margin-bottom: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 2px solid var(--banner-border-color);
+    margin: -2px -2px 20px -2px; /* Align with borders */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .short-banner {
