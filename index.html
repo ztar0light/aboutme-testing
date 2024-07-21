@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ztarlight's Page</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <style>
+        /* General styles for the body and containers */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        #contentContainer {
+            display: flex;
+            flex-direction: row;
+            width: 100vw;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+        }
+
+        .section {
+            width: 100vw;
+            scroll-snap-align: start;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Styles for the back button */
+        #backButtonContainer {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        #backButton {
+            text-decoration: none;
+            color: #333;
+            background-color: #f4f4f9;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        #backButton:hover {
+            background-color: #e2e2e2;
+        }
+
+        /* Styles for rounded rectangle sections */
+        .roundedRect {
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Styles for each section */
+        .line {
+            width: 100%;
+            height: 1px;
+            background-color: #ddd;
+            margin: 20px 0;
+        }
+
+        /* Styles for small text boxes */
+        .smallTextBox {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .buttonBar .button {
+            text-decoration: none;
+            color: white;
+            background-color: #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 5px;
+            display: inline-block;
+        }
+
+        .buttonBar .button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Styles for the profile picture */
+        #profilePicture img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            border: 2px solid #ddd;
+        }
+
+        /* Responsive design adjustments */
+        @media (max-width: 600px) {
+            #profilePicture img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .section {
+                padding: 10px;
+            }
+
+            .buttonBar .button {
+                padding: 8px 16px;
+                margin: 3px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="backButtonContainer">
+        <a id="backButton" href="#">Back</a>
+    </div>
+    <div id="contentContainer">
+        <div class="section">
+            <div class="roundedRect">
+                <div id="banner1"></div>
+                <div id="profilePicture">
+                    <img src="assets/pfp.png" alt="Profile Picture">
+                </div>
+                <div id="title">
+                    <h1>Hey, I'm Ztarlight</h1>
+                    <div class="halfOpaque">
+                        <p><b>ztar0light on discord</b></p>
+                    </div>
+                </div>
+                <div class="line"></div>
+                <div class="buttonSection">
+                    <div class="smallTextBox">
+                        <div class="buttonBar">
+                            <a href="https://docs.google.com" class="button">Google Docs</a>
+                            <a href="https://sheets.google.com" class="button">Google Sheets</a>
+                            <a href="https://slides.google.com" class="button">Google Slides</a>
+                            <a href="https://classroom.google.com" class="button">Google Classroom</a>
+                            <p><strong>*google apps just placeholders</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="line"></div>
+                <div class="aboutMeSection">
+                    <div class="smallTextBox">
+                        <h2>About me</h2>
+                        <p>im just chillin'.</p>
+                    </div>
+                </div>
+                <div class="line"></div>
+                <div class="workingOnSection">
+                    <div class="smallTextBox">
+                        <h2>What I'm working on</h2>
+                        <p>This dang website</p>
+                        <ul>
+                            <li><del>box to put all this text in</del></li>
+                            <li><del>put in pfp like solo.to</del></li>
+                            <li>social media link buttons</li>
+                            <li>pictures? <i>maybe</i></li>
+                        </ul>
+                        <p>Drawing anime style</p>
+                        <ul>
+                            <li><del>basic head</del></li>
+                            <li>hair stiffness</li>
+                            <li>shading</li>
+                            <li><i>help</i></li>
+                        </ul>
+                        <p>Typing</p>
+                        <ul>
+                            <li><del>qwerty</del></li>
+                            <li>workman</li>
+                            <li>steno</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <p><b>This page is a work in progress.</b></p>
+        </div>
+    </div>
+    <script>
+        function handleBackButtonClick(event) {
+            event.preventDefault();
+            var newTab = window.open('about:blank', '_blank');
+            window.close();
+        }
+        document.getElementById("backButton").addEventListener("click", handleBackButtonClick);
+    </script>
+</body>
+</html>
