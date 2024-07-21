@@ -6,35 +6,28 @@
     <title>Ztarlight's Page</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <style>
-        /* General styles for the body and containers */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
-            overflow: hidden; /* Prevent vertical scrolling */
+            overflow: hidden;
             background-color: var(--background-color);
             color: var(--text-color);
             transition: background-color 0.3s, color 0.3s;
         }
-
         :root {
             --background-color: #f4f4f9;
             --text-color: #333;
-            --accent-color: #b0c4de; /* Lighter, duller pastel blue */
-            --border-color: #a0b3c3; /* Slightly darker pastel blue for border */
+            --accent-color: #b0c4de;
+            --border-color: #a0b3c3;
             --button-bg-color: #b0c4de;
             --button-text-color: #333;
             --button-hover-bg-color: #9eb2cd;
         }
-
         [data-theme="dark"] {
             --background-color: #333;
             --text-color: #f4f4f9;
-            --button-bg-color: #b0c4de;
-            --button-text-color: #333;
-            --button-hover-bg-color: #9eb2cd;
             --border-color: #888;
         }
-
         #contentContainer {
             display: flex;
             flex-direction: row;
@@ -44,7 +37,6 @@
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
         }
-
         .section {
             width: 100vw;
             height: 100vh;
@@ -56,20 +48,17 @@
             padding: 20px;
             box-sizing: border-box;
         }
-
         .section-content {
             width: 80%;
             max-width: 600px;
             text-align: center;
             background-color: var(--background-color);
             border: 2px solid var(--border-color);
-            border-radius: 20px; /* More rounded corners */
-            padding: 20px;
-            padding-top: 0;
+            border-radius: 20px;
+            padding: 20px 20px 0;
             transition: background-color 0.3s, border-color 0.3s;
             position: relative;
         }
-
         .banner {
             width: calc(100% + 4px);
             height: 150px;
@@ -80,15 +69,34 @@
             top: -2px;
             left: -2px;
         }
-
-        /* Styles for the back button */
-        #backButtonContainer {
+        #profilePicture {
+            position: relative;
+            top: -75px;
+            margin-bottom: -75px;
+        }
+        #profilePicture img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            border: 4px solid var(--background-color);
+        }
+        h1, h2 {
+            margin-top: 20px;
+        }
+        p {
+            margin-top: 10px;
+        }
+        #backButtonContainer, #themeSwitchContainer {
             position: absolute;
             top: 10px;
+        }
+        #backButtonContainer {
             left: 10px;
         }
-
-        #backButton {
+        #themeSwitchContainer {
+            right: 10px;
+        }
+        #backButton, #themeSwitch {
             text-decoration: none;
             color: var(--button-text-color);
             background-color: var(--button-bg-color);
@@ -97,48 +105,11 @@
             border-radius: 20px;
             font-family: monospace;
             transition: background-color 0.3s, border-color 0.3s;
-        }
-
-        #backButton:hover {
-            background-color: var(--button-hover-bg-color);
-        }
-
-        /* Dark mode switch button */
-        #themeSwitchContainer {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
-
-        #themeSwitch {
-            background-color: var(--button-bg-color);
-            color: var(--button-text-color);
-            border: 2px solid var(--border-color);
-            padding: 10px 20px;
-            border-radius: 20px;
             cursor: pointer;
-            font-family: monospace;
-            transition: background-color 0.3s, border-color 0.3s;
         }
-
-        #themeSwitch:hover {
+        #backButton:hover, #themeSwitch:hover {
             background-color: var(--button-hover-bg-color);
         }
-
-        /* Profile Picture */
-        #profilePicture {
-            position: relative;
-            top: -75px;
-        }
-
-        #profilePicture img {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            border: 4px solid var(--background-color);
-        }
-
-        /* Button bar styles */
         .buttonBar .button {
             text-decoration: none;
             color: var(--button-text-color);
@@ -151,41 +122,33 @@
             transition: background-color 0.3s, border-color 0.3s;
             font-family: monospace;
         }
-
         .buttonBar .button:hover {
             background-color: var(--button-hover-bg-color);
         }
-
-        /* Footer styles */
         #footer {
             position: absolute;
             bottom: 10px;
             width: 100%;
             text-align: center;
         }
-
-        /* Responsive design adjustments */
         @media (max-width: 600px) {
             #profilePicture img {
                 width: 100px;
                 height: 100px;
             }
-
             .section {
                 padding: 10px;
             }
-
             .buttonBar .button {
                 padding: 8px 16px;
                 margin: 3px;
             }
-
             .banner {
                 height: 100px;
             }
-
             #profilePicture {
                 top: -50px;
+                margin-bottom: -50px;
             }
         }
     </style>
@@ -253,13 +216,11 @@
         <p><b>This page is a work in progress.</b></p>
     </div>
     <script>
-        function handleBackButtonClick(event) {
+        document.getElementById("backButton").addEventListener("click", function(event) {
             event.preventDefault();
             window.history.back();
-        }
-        document.getElementById("backButton").addEventListener("click", handleBackButtonClick);
+        });
 
-        // Theme switch functionality
         const themeSwitch = document.getElementById('themeSwitch');
         const body = document.body;
 
@@ -268,16 +229,11 @@
             localStorage.setItem('theme', theme);
         }
 
-        themeSwitch.addEventListener('click', () => {
+        themeSwitch.addEventListener('click', function() {
             const currentTheme = body.getAttribute('data-theme');
-            if (currentTheme === 'dark') {
-                setTheme('light');
-            } else {
-                setTheme('dark');
-            }
+            setTheme(currentTheme === 'dark' ? 'light' : 'dark');
         });
 
-        // Automatically set theme based on user's system preference
         const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         const savedTheme = localStorage.getItem('theme') || (userPrefersDark ? 'dark' : 'light');
         setTheme(savedTheme);
