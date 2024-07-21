@@ -20,9 +20,9 @@
             --background-color: #f4f4f9;
             --text-color: #333;
             --accent-color: #1a237e; /* Navy blue */
-            --button-bg-color: #007bff;
+            --button-bg-color: #1a237e; /* Duller navy blue */
             --button-text-color: white;
-            --button-hover-bg-color: #0056b3;
+            --button-hover-bg-color: #0d1b5e;
         }
 
         [data-theme="dark"] {
@@ -58,6 +58,11 @@
             width: 80%;
             max-width: 600px;
             text-align: center;
+            background-color: var(--background-color);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: background-color 0.3s;
         }
 
         /* Styles for the back button */
@@ -102,12 +107,25 @@
             background-color: var(--button-hover-bg-color);
         }
 
-        /* Profile Picture */
+        /* Profile Picture and Banner */
+        #banner {
+            width: 100%;
+            height: 150px;
+            background-color: var(--button-bg-color);
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        #profilePicture {
+            position: relative;
+            top: -75px;
+        }
+
         #profilePicture img {
             border-radius: 50%;
             width: 150px;
             height: 150px;
-            border: 2px solid #ddd;
+            border: 4px solid var(--background-color);
         }
 
         /* Button bar styles */
@@ -126,6 +144,14 @@
             background-color: var(--button-hover-bg-color);
         }
 
+        /* Footer styles */
+        #footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+        }
+
         /* Responsive design adjustments */
         @media (max-width: 600px) {
             #profilePicture img {
@@ -141,6 +167,14 @@
                 padding: 8px 16px;
                 margin: 3px;
             }
+
+            #banner {
+                height: 100px;
+            }
+
+            #profilePicture {
+                top: -50px;
+            }
         }
     </style>
 </head>
@@ -154,6 +188,7 @@
     <div id="contentContainer">
         <div class="section">
             <div class="section-content">
+                <div id="banner"></div>
                 <div id="profilePicture">
                     <img src="assets/pfp.png" alt="Profile Picture">
                 </div>
@@ -199,11 +234,9 @@
                 </ul>
             </div>
         </div>
-        <div class="section">
-            <div class="section-content">
-                <p><b>This page is a work in progress.</b></p>
-            </div>
-        </div>
+    </div>
+    <div id="footer">
+        <p><b>This page is a work in progress.</b></p>
     </div>
     <script>
         function handleBackButtonClick(event) {
