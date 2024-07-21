@@ -5,18 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ztarlight's Page</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <a id="backButton" href="#">← Back</a>
-            <button id="themeSwitch">⚙ Switch Theme</button>
-        </div>
-    </header>
-    <main>
-        <section class="hero">
-            <div class="hero-content">
+    <div id="backButtonContainer">
+        <a id="backButton" href="#">← Back</a>
+    </div>
+    <div id="themeSwitchContainer">
+        <button id="themeSwitch">⚙ Switch Theme</button>
+    </div>
+    <div id="contentContainer">
+        <div class="section">
+            <div class="section-content">
+                <div class="banner-container">
+                    <div class="banner"></div>
+                </div>
                 <div id="profilePicture">
                     <img src="assets/pfp.png" alt="Profile Picture">
                 </div>
@@ -30,44 +33,48 @@
                     <p><strong>*google apps just placeholders</strong></p>
                 </div>
             </div>
-        </section>
-        <section class="content">
-            <div class="content-container">
-                <div class="banner"></div>
-                <h2>About Me</h2>
-                <p>Just chillin'.</p>
+        </div>
+        <div class="section">
+            <div class="section-content">
+                <div class="banner-container">
+                    <div class="banner short-banner"></div>
+                </div>
+                <h2>About me</h2>
+                <p>im just chillin'.</p>
             </div>
-        </section>
-        <section class="content">
-            <div class="content-container">
-                <div class="banner short-banner"></div>
-                <h2>What I'm Working On</h2>
+        </div>
+        <div class="section">
+            <div class="section-content">
+                <div class="banner-container">
+                    <div class="banner short-banner"></div>
+                </div>
+                <h2>What I'm working on</h2>
                 <p>This dang website</p>
                 <ul>
-                    <li><del>Box to put all this text in</del></li>
-                    <li><del>Put in PFP like solo.to</del></li>
-                    <li>Social media link buttons</li>
-                    <li>Pictures? <i>Maybe</i></li>
+                    <li><del>box to put all this text in</del></li>
+                    <li><del>put in pfp like solo.to</del></li>
+                    <li>social media link buttons</li>
+                    <li>pictures? <i>maybe</i></li>
                 </ul>
                 <p>Drawing anime style</p>
                 <ul>
-                    <li><del>Basic head</del></li>
-                    <li>Hair stiffness</li>
-                    <li>Shading</li>
-                    <li><i>Help</i></li>
+                    <li><del>basic head</del></li>
+                    <li>hair stiffness</li>
+                    <li>shading</li>
+                    <li><i>help</i></li>
                 </ul>
                 <p>Typing</p>
                 <ul>
-                    <li><del>Qwerty</del></li>
-                    <li>Workman</li>
-                    <li>Steno</li>
+                    <li><del>qwerty</del></li>
+                    <li>workman</li>
+                    <li>steno</li>
                 </ul>
             </div>
-        </section>
-    </main>
-    <footer>
+        </div>
+    </div>
+    <div id="footer">
         <p><b>This page is a work in progress.</b></p>
-    </footer>
+    </div>
     <script>
         document.getElementById("backButton").addEventListener("click", function(event) {
             event.preventDefault();
