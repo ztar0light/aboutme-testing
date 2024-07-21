@@ -8,17 +8,18 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <div id="backButtonContainer">
-        <a id="backButton" href="#">← Back</a>
-    </div>
-    <div id="themeSwitchContainer">
-        <button id="themeSwitch">⚙ Switch Theme</button>
+    <div id="menuContainer">
+        <div id="menuButton">☰</div>
+        <div id="menuDropdown">
+            <a id="backButton" href="#">← Back</a>
+            <button id="themeSwitch">⚙ Switch Theme</button>
+        </div>
     </div>
     <div id="contentContainer">
         <div class="section">
             <div class="section-content">
                 <div class="banner-container">
-                    <div class="banner"></div>
+                    <div class="banner tall-banner"></div>
                 </div>
                 <div id="profilePicture">
                     <img src="assets/pfp.png" alt="Profile Picture">
@@ -97,6 +98,18 @@
         const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         const savedTheme = localStorage.getItem('theme') || (userPrefersDark ? 'dark' : 'light');
         setTheme(savedTheme);
+
+        // Dropdown menu functionality
+        const menuButton = document.getElementById('menuButton');
+        const menuDropdown = document.getElementById('menuDropdown');
+
+        menuButton.addEventListener('mouseover', function() {
+            menuDropdown.style.display = 'block';
+        });
+
+        menuDropdown.addEventListener('mouseleave', function() {
+            menuDropdown.style.display = 'none';
+        });
     </script>
 </body>
 </html>
