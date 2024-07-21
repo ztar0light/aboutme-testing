@@ -2,7 +2,7 @@
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
-    overflow: hidden;
+    overflow-x: hidden;
     background-color: var(--background-color);
     color: var(--text-color);
     transition: background-color 0.3s, color 0.3s;
@@ -28,15 +28,44 @@ body {
 
 /* Layout Styles */
 header {
-    position: relative;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--background-color);
     padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+#backButtonContainer, #themeSwitchContainer {
+    display: flex;
+    align-items: center;
+}
+
+#backButton, #themeSwitch {
+    text-decoration: none;
+    color: var(--button-text-color);
+    background-color: var(--button-bg-color);
+    padding: 10px 20px;
+    border: 2px solid var(--border-color);
+    border-radius: 20px;
+    font-family: monospace;
+    transition: background-color 0.3s, border-color 0.3s;
+    cursor: pointer;
+}
+
+#backButton:hover, #themeSwitch:hover {
+    background-color: var(--button-hover-bg-color);
 }
 
 #contentContainer {
+    margin-top: 60px; /* Adjusted to make space for the header */
     display: flex;
     flex-direction: row;
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 60px); /* Adjusted height to fit below the header */
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
@@ -44,7 +73,7 @@ header {
 
 .section {
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     scroll-snap-align: start;
     display: flex;
     justify-content: center;
@@ -65,7 +94,7 @@ header {
 }
 
 .banner {
-    width: calc(100% + 4px); /* Fit within the section content */
+    width: calc(100% + 4px);
     height: 86px;
     background-color: var(--accent-color);
     border-top-left-radius: 18px;
@@ -101,37 +130,6 @@ p {
     margin: 10px 0;
 }
 
-/* Button Styles */
-#backButtonContainer, #themeSwitchContainer {
-    position: absolute;
-    top: 10px;
-    padding: 0 20px;
-}
-
-#backButtonContainer {
-    left: 10px;
-}
-
-#themeSwitchContainer {
-    right: 10px;
-}
-
-#backButton, #themeSwitch {
-    text-decoration: none;
-    color: var(--button-text-color);
-    background-color: var(--button-bg-color);
-    padding: 10px 20px;
-    border: 2px solid var(--border-color);
-    border-radius: 20px;
-    font-family: monospace;
-    transition: background-color 0.3s, border-color 0.3s;
-    cursor: pointer;
-}
-
-#backButton:hover, #themeSwitch:hover {
-    background-color: var(--button-hover-bg-color);
-}
-
 .buttonBar .button {
     text-decoration: none;
     color: var(--button-text-color);
@@ -151,10 +149,12 @@ p {
 
 /* Footer Styles */
 footer {
-    position: absolute;
+    position: fixed;
     bottom: 20px;
     width: 100%;
     text-align: center;
+    background-color: var(--background-color);
+    padding: 10px;
 }
 
 /* Responsive Styles */
