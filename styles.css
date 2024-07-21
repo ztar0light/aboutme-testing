@@ -62,7 +62,7 @@ body {
 
 .banner-container {
     position: absolute;
-    top: 0;
+    top: -2px;
     left: -2px;
     right: -2px;
     border-top-left-radius: 18px;
@@ -71,11 +71,15 @@ body {
 }
 
 .banner {
-    width: calc(100% + 4px); /* Adjusted to fit within border */
+    width: 100%;
     height: 50%; /* Ensure 50/50 split */
     background-color: var(--accent-color);
     border-bottom: 2px solid var(--banner-border-color);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tall-banner {
+    height: 50%; /* Ensure 50/50 split */
 }
 
 .short-banner {
@@ -84,7 +88,7 @@ body {
 
 #profilePicture {
     position: relative;
-    top: -90px; /* Higher placement */
+    top: -70px; /* Higher placement */
     margin-bottom: -70px;
 }
 
