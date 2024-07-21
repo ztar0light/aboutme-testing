@@ -1,0 +1,24 @@
+/* backButton.css */
+#backButtonContainer {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+#backButton {
+    background-color: transparent;
+    color: #FFA500;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    display: inline-block;
+    border: 2px solid #FFA500; /* Add border to make it visible */
+    transition: all 0.3s ease;
+}
+
+    #backButton:hover,
+    #backButton:focus {
+        background-color: #FFA500;
+        color: white;
+    }
