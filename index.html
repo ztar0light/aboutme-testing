@@ -242,4 +242,9 @@
             setTheme(currentTheme === 'dark' ? 'light' : 'dark');
         });
 
-        const userPrefersDark = window.matchMedia && window
+        const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const savedTheme = localStorage.getItem('theme') || (userPrefersDark ? 'dark' : 'light');
+        setTheme(savedTheme);
+    </script>
+</body>
+</html>
