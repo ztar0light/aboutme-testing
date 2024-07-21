@@ -11,9 +11,9 @@ body {
 :root {
     --background-color: #ffffff;
     --text-color: #333333;
-    --accent-color: #007bff; /* Updated blue */
+    --accent-color: #007bff; /* Primary Blue */
     --border-color: #cccccc;
-    --banner-border-color: #0056b3; /* Darker blue for border */
+    --banner-border-color: #0056b3; /* Darker Blue for Banner */
     --button-bg-color: #007bff;
     --button-text-color: #ffffff;
     --button-hover-bg-color: #0056b3;
@@ -37,6 +37,7 @@ header {
     padding: 10px;
     display: flex;
     justify-content: center;
+    align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1000;
 }
@@ -71,11 +72,46 @@ main {
     box-sizing: border-box;
 }
 
-.section {
+/* Hero Section Styles */
+.hero {
+    text-align: center;
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#profilePicture {
+    margin-bottom: 20px;
+}
+
+#profilePicture img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    border: 4px solid var(--background-color);
+}
+
+h1, h2 {
+    margin: 20px 0;
+}
+
+p {
+    margin: 10px 0;
+}
+
+/* Content Section Styles */
+.content {
     margin-bottom: 40px;
 }
 
-.section-content {
+.content-container {
     background-color: var(--background-color);
     border: 2px solid var(--border-color);
     border-radius: 10px;
@@ -104,28 +140,11 @@ main {
     margin-bottom: 20px;
 }
 
-#profilePicture {
-    margin-bottom: 20px;
-}
-
-#profilePicture img {
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    border: 4px solid var(--background-color);
-}
-
-h1, h2 {
-    margin: 20px 0;
-}
-
-p {
-    margin: 10px 0;
-}
-
+/* Button Bar Styles */
 .buttonBar {
     display: flex;
     flex-direction: column; /* Stack buttons vertically */
+    align-items: center;
 }
 
 .buttonBar .button {
@@ -137,6 +156,10 @@ p {
     border: none;
     margin: 5px 0; /* Vertical margin for stacked buttons */
     transition: background-color 0.3s;
+    display: block;
+    width: 100%; /* Full width for better layout */
+    max-width: 300px; /* Maximum button width */
+    text-align: center;
 }
 
 .buttonBar .button:hover {
