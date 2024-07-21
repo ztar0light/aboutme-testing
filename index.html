@@ -57,7 +57,7 @@
             background-color: var(--background-color);
             border: 2px solid var(--border-color);
             border-radius: 20px;
-            padding: 20px 20px 40px;
+            padding: 40px 20px 20px;
             transition: background-color 0.3s, border-color 0.3s;
             position: relative;
             box-sizing: border-box;
@@ -69,15 +69,17 @@
             border-top-left-radius: 18px;
             border-top-right-radius: 18px;
             border-bottom: 2px solid var(--banner-border-color);
-            margin: -2px -2px 20px -2px;
+            margin: -2px -2px 40px -2px; /* Consistent spacing below banner */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .short-banner {
             height: calc(75px * 5 / 7); /* Reduced height by 2/7 */
-            margin-bottom: 20px;
+            margin-bottom: 40px; /* Consistent spacing below banner */
         }
         #profilePicture {
-            margin-top: -50px; /* Adjusted spacing */
+            position: relative;
+            top: -90px; /* Higher placement */
+            margin-bottom: -90px;
         }
         #profilePicture img {
             border-radius: 50%;
@@ -133,7 +135,7 @@
         }
         #footer {
             position: absolute;
-            bottom: 10px;
+            bottom: 20px; /* Adjusted to be near the very bottom */
             width: 100%;
             text-align: center;
         }
@@ -156,7 +158,7 @@
                 height: calc(50px * 5 / 7); /* Adjusted height for smaller screens */
             }
             #profilePicture {
-                margin-top: -50px;
+                top: -60px; /* Higher placement for smaller screens */
             }
         }
     </style>
