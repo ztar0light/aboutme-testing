@@ -248,8 +248,7 @@
     <script>
         function handleBackButtonClick(event) {
             event.preventDefault();
-            var newTab = window.open('about:blank', '_blank');
-            window.close();
+            window.history.back();
         }
         document.getElementById("backButton").addEventListener("click", handleBackButtonClick);
 
@@ -272,4 +271,9 @@
         });
 
         // Automatically set theme based on user's system preference
-        const userPrefersDark = window
+        const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const savedTheme = localStorage.getItem('theme') || (userPrefersDark ? 'dark' : 'light');
+        setTheme(savedTheme);
+    </script>
+</body>
+</html>
