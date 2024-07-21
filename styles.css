@@ -48,31 +48,31 @@ body {
 }
 
 .section-content {
-    width: 80%;
-    max-width: 600px;
+    width: 100%; /* Full width within the parent container */
+    max-width: 600px; /* Limit the maximum width */
     text-align: center;
     background-color: var(--background-color);
     border: 2px solid var(--border-color);
     border-radius: 20px;
-    padding: 40px 20px 20px; 
+    padding: 40px 20px 20px;
     transition: background-color 0.3s, border-color 0.3s;
     position: relative;
     box-sizing: border-box;
 }
 
 .banner {
-    width: calc(100% + 4px); /* Adjusted to fit within border */
-    height: 86px; /* Adjusted height */
+    width: 100%; /* Fit within the section content */
+    height: 86px; /* Maintain height */
     background-color: var(--accent-color);
     border-top-left-radius: 18px;
     border-top-right-radius: 18px;
     border-bottom: 2px solid var(--banner-border-color);
-    margin: -2px -2px 20px -2px;
+    margin: -2px -2px 20px -2px; /* Adjust margins if needed */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .short-banner {
-    height: 43px; /* Adjusted height */
+    height: 43px; /* Maintain height */
     margin-bottom: 20px;
 }
 
