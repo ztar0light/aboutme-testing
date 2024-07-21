@@ -1,3 +1,4 @@
+/* Base Styles */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -23,6 +24,12 @@ body {
     --text-color: #f4f4f9;
     --border-color: #888;
     --banner-border-color: #666;
+}
+
+/* Layout Styles */
+header {
+    position: relative;
+    padding: 10px;
 }
 
 #contentContainer {
@@ -52,7 +59,7 @@ body {
     background-color: var(--background-color);
     border: 2px solid var(--border-color);
     border-radius: 20px;
-    padding: 40px 20px 20px;
+    padding: 40px 20px;
     transition: background-color 0.3s, border-color 0.3s;
     box-sizing: border-box;
 }
@@ -87,13 +94,14 @@ body {
 }
 
 h1, h2 {
-    margin: 20px 0 10px; /* Consistent spacing */
+    margin: 20px 0 10px;
 }
 
 p {
     margin: 10px 0;
 }
 
+/* Button Styles */
 #backButtonContainer, #themeSwitchContainer {
     position: absolute;
     top: 10px;
@@ -141,13 +149,15 @@ p {
     background-color: var(--button-hover-bg-color);
 }
 
-#footer {
+/* Footer Styles */
+footer {
     position: absolute;
     bottom: 20px;
     width: 100%;
     text-align: center;
 }
 
+/* Responsive Styles */
 @media (max-width: 600px) {
     #profilePicture img {
         width: 100px;
@@ -161,10 +171,10 @@ p {
         margin: 3px;
     }
     .banner {
-        height: 71px; /* Adjusted for smaller screens */
+        height: 71px;
     }
     .short-banner {
-        height: 36px; /* Adjusted for smaller screens */
+        height: 36px;
     }
     #profilePicture {
         top: -60px;
