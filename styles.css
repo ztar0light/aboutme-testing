@@ -72,7 +72,8 @@ body {
 
 .banner {
     width: 100%;
-    height: 50%; /* Ensure 50/50 split */
+    height: 100%; /* Ensure 50/50 split */
+    z-index: 3;
     background-color: var(--accent-color);
     border-bottom: 2px solid var(--banner-border-color);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
