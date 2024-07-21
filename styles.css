@@ -39,7 +39,6 @@ body {
     width: 100vw;
     height: 100vh;
     scroll-snap-align: start;
-    flex-shrink: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,37 +47,35 @@ body {
 }
 
 .section-content {
-    width: 100%; /* Full width within the parent container */
-    max-width: 600px; /* Limit the maximum width */
-    text-align: center;
+    width: 100%;
+    max-width: 600px;
     background-color: var(--background-color);
     border: 2px solid var(--border-color);
     border-radius: 20px;
     padding: 40px 20px 20px;
     transition: background-color 0.3s, border-color 0.3s;
-    position: relative;
     box-sizing: border-box;
 }
 
 .banner {
-    width: 100%; /* Fit within the section content */
-    height: 86px; /* Maintain height */
+    width: calc(100% + 4px); /* Fit within the section content */
+    height: 86px;
     background-color: var(--accent-color);
     border-top-left-radius: 18px;
     border-top-right-radius: 18px;
     border-bottom: 2px solid var(--banner-border-color);
-    margin: -2px -2px 20px -2px; /* Adjust margins if needed */
+    margin: -2px -2px 20px -2px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .short-banner {
-    height: 43px; /* Maintain height */
+    height: 43px;
     margin-bottom: 20px;
 }
 
 #profilePicture {
     position: relative;
-    top: -90px; /* Higher placement */
+    top: -90px;
     margin-bottom: -90px;
 }
 
@@ -90,17 +87,17 @@ body {
 }
 
 h1, h2 {
-    margin-top: 20px;
+    margin: 20px 0 10px; /* Consistent spacing */
 }
 
 p {
-    margin-top: 10px;
+    margin: 10px 0;
 }
 
 #backButtonContainer, #themeSwitchContainer {
     position: absolute;
     top: 10px;
-    padding: 0 20px; /* Match padding for consistency */
+    padding: 0 20px;
 }
 
 #backButtonContainer {
@@ -146,7 +143,7 @@ p {
 
 #footer {
     position: absolute;
-    bottom: 20px; /* Adjusted to be near the very bottom */
+    bottom: 20px;
     width: 100%;
     text-align: center;
 }
@@ -164,12 +161,12 @@ p {
         margin: 3px;
     }
     .banner {
-        height: calc(100px * 5 / 7); /* Adjusted height for smaller screens */
+        height: 71px; /* Adjusted for smaller screens */
     }
     .short-banner {
-        height: calc(50px * 5 / 7); /* Adjusted height for smaller screens */
+        height: 36px; /* Adjusted for smaller screens */
     }
     #profilePicture {
-        top: -60px; /* Higher placement for smaller screens */
+        top: -60px;
     }
 }
