@@ -19,6 +19,7 @@
             --text-color: #333;
             --accent-color: #b0c4de;
             --border-color: #a0b3c3;
+            --banner-border-color: #8da0b3;
             --button-bg-color: #b0c4de;
             --button-text-color: #333;
             --button-hover-bg-color: #9eb2cd;
@@ -27,6 +28,7 @@
             --background-color: #333;
             --text-color: #f4f4f9;
             --border-color: #888;
+            --banner-border-color: #666;
         }
         #contentContainer {
             display: flex;
@@ -55,25 +57,27 @@
             background-color: var(--background-color);
             border: 2px solid var(--border-color);
             border-radius: 20px;
-            padding: 40px 20px 20px;
+            padding: 20px 20px 40px;
             transition: background-color 0.3s, border-color 0.3s;
             position: relative;
             box-sizing: border-box;
         }
         .banner {
             width: 100%;
-            height: 150px;
+            height: calc(150px * 5 / 7); /* Reduced height by 2/7 */
             background-color: var(--accent-color);
             border-top-left-radius: 18px;
             border-top-right-radius: 18px;
+            border-bottom: 2px solid var(--banner-border-color);
             margin: -2px -2px 20px -2px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .short-banner {
-            height: 75px;
+            height: calc(75px * 5 / 7); /* Reduced height by 2/7 */
             margin-bottom: 20px;
         }
         #profilePicture {
-            margin-top: -75px;
+            margin-top: -50px; /* Adjusted spacing */
         }
         #profilePicture img {
             border-radius: 50%;
@@ -90,6 +94,7 @@
         #backButtonContainer, #themeSwitchContainer {
             position: absolute;
             top: 10px;
+            padding: 0 20px; /* Match padding for consistency */
         }
         #backButtonContainer {
             left: 10px;
@@ -145,10 +150,10 @@
                 margin: 3px;
             }
             .banner {
-                height: 100px;
+                height: calc(100px * 5 / 7); /* Adjusted height for smaller screens */
             }
             .short-banner {
-                height: 50px;
+                height: calc(50px * 5 / 7); /* Adjusted height for smaller screens */
             }
             #profilePicture {
                 margin-top: -50px;
@@ -237,9 +242,4 @@
             setTheme(currentTheme === 'dark' ? 'light' : 'dark');
         });
 
-        const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const savedTheme = localStorage.getItem('theme') || (userPrefersDark ? 'dark' : 'light');
-        setTheme(savedTheme);
-    </script>
-</body>
-</html>
+        const userPrefersDark = window.matchMedia && window
