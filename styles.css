@@ -62,10 +62,9 @@ body {
 
 .banner-container {
     position: absolute;
-    top: -2px;
+    top: -67px; /* Higher placement */
     left: -2px;
     right: -2px;
-    height: 130px;
     border-top-left-radius: 18px;
     border-top-right-radius: 18px;
     overflow: hidden;
@@ -73,25 +72,20 @@ body {
 
 .banner {
     width: 100%;
-    height: 100%; /* Ensure 50/50 split */
+    height: 150px;
     background-color: var(--accent-color);
     border-bottom: 2px solid var(--banner-border-color);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.tall-banner {
-    margin-bottom: 45px
-    height: 50%; /* Ensure 50/50 split */
-}
-
 .short-banner {
-    height: 25%; /* Adjusted height */
+    height: 75px;
 }
 
 #profilePicture {
     position: relative;
-    top: -70px; /* Higher placement */
-    margin-bottom: -70px;
+    top: -50px; /* Higher placement */
+    margin-bottom: -50px;
 }
 
 #profilePicture img {
@@ -130,6 +124,8 @@ p {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    width: 200px;
+    padding-bottom: 10px;
 }
 
 #menuDropdown a,
@@ -156,11 +152,32 @@ p {
     border-bottom: none;
 }
 
+.dimmed {
+    opacity: 0.5;
+}
+
 #footer {
     position: absolute;
-    bottom: 20px; /* Adjusted to be near the very bottom */
+    bottom: 20px;
     width: 100%;
     text-align: center;
+}
+
+.buttonBar .button {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--button-text-color);
+    background-color: var(--button-bg-color);
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 2px solid var(--border-color);
+    margin: 5px;
+    transition: background-color 0.3s, border-color 0.3s;
+    cursor: pointer;
+}
+
+.buttonBar .button:hover {
+    background-color: var(--button-hover-bg-color);
 }
 
 @media (max-width: 600px) {
@@ -176,12 +193,13 @@ p {
         margin: 3px;
     }
     .banner {
-        height: 50%; /* Adjusted height for smaller screens */
+        height: 100px;
     }
     .short-banner {
-        height: 25%; /* Adjusted height for smaller screens */
+        height: 50px;
     }
     #profilePicture {
-        top: -60px; /* Higher placement for smaller screens */
+        top: -40px;
+        margin-bottom: -40px;
     }
 }
