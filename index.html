@@ -103,12 +103,16 @@
         const menuButton = document.getElementById('menuButton');
         const menuDropdown = document.getElementById('menuDropdown');
 
-        menuButton.addEventListener('mouseover', function() {
+        menuButton.addEventListener('click', function() {
             menuDropdown.style.display = 'block';
+            document.getElementById('contentContainer').classList.add('dimmed');
         });
 
-        menuDropdown.addEventListener('mouseleave', function() {
-            menuDropdown.style.display = 'none';
+        document.addEventListener('click', function(event) {
+            if (!menuContainer.contains(event.target) && !menuButton.contains(event.target)) {
+                menuDropdown.style.display = 'none';
+                document.getElementById('contentContainer').classList.remove('dimmed');
+            }
         });
     </script>
 </body>
