@@ -10,11 +10,13 @@
 <body>
     <div id="menuContainer">
         <div id="menuButton">☰</div>
-        <div id="menuDropdown">
-            <a id="backButton" href="#">← Back</a>
-            <button id="themeSwitch">⚙ Switch Theme</button>
+        <div id="menuSidebar">
+            <div class="menu-item"><a id="backButton" href="#">← Back</a></div>
+            <div class="menu-item"><button id="themeSwitch">⚙ Switch Theme</button></div>
         </div>
     </div>
+    <div id="leftButton" class="sideButton">‹</div>
+    <div id="rightButton" class="sideButton">›</div>
     <div id="contentContainer">
         <div class="section">
             <div class="section-content">
@@ -77,7 +79,7 @@
         <p><b>This page is a work in progress.</b></p>
     </div>
     <script>
-        document.getElementById("backButton").addEventListener("click", function(event) {
+        document.getElementById("backButton").addEventListener("click", function (event) {
             event.preventDefault();
             window.history.back();
         });
@@ -90,7 +92,7 @@
             localStorage.setItem('theme', theme);
         }
 
-        themeSwitch.addEventListener('click', function() {
+        themeSwitch.addEventListener('click', function () {
             const currentTheme = body.getAttribute('data-theme');
             setTheme(currentTheme === 'dark' ? 'light' : 'dark');
         });
@@ -99,21 +101,62 @@
         const savedTheme = localStorage.getItem('theme') || (userPrefersDark ? 'dark' : 'light');
         setTheme(savedTheme);
 
-        // Dropdown menu functionality
+        // Sidebar menu functionality
         const menuButton = document.getElementById('menuButton');
-        const menuDropdown = document.getElementById('menuDropdown');
+        const menuSidebar = document.getElementById('menuSidebar');
+        const contentContainer = document.getElementById('contentContainer');
+        const leftButton = document.getElementById('leftButton');
+        const rightButton = document.getElementById('rightButton');
 
-        menuButton.addEventListener('click', function() {
-            menuDropdown.style.display = 'block';
-            document.getElementById('contentContainer').classList.add('dimmed');
+        menuButton.addEventListener('click', function () {
+            menuSidebar.classList.toggle('active');
+            contentContainer.classList.toggle('dimmed');
+            menuButton.classList.toggle('active');
         });
 
-        document.addEventListener('click', function(event) {
+        document.addEventListener('click', function (event) {
             if (!menuContainer.contains(event.target) && !menuButton.contains(event.target)) {
-                menuDropdown.style.display = 'none';
-                document.getElementById('contentContainer').classList.remove('dimmed');
+                menuSidebar.classList.remove('active');
+                contentContainer.classList.remove('dimmed');
+                menuButton.classList.remove('active');
             }
         });
+
+        // Scrolling functionality
+        const sections = document.querySelectorAll('.section');
+        let currentIndex = 0;
+
+        function updateButtons() {
+            if (currentIndex === 0) {
+                leftButton.classList.add('disabled');
+            } else {
+                leftButton.classList.remove('disabled');
+            }
+
+            if (currentIndex === sections.length - 1) {
+                rightButton.classList.add('disabled');
+            } else {
+                rightButton.classList.remove('disabled');
+            }
+        }
+
+        leftButton.addEventListener('click', function () {
+            if (currentIndex > 0) {
+                currentIndex--;
+                sections[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+                updateButtons();
+            }
+        });
+
+        rightButton.addEventListener('click', function () {
+            if (currentIndex < sections.length - 1) {
+                currentIndex++;
+                sections[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+                updateButtons();
+            }
+        });
+
+        updateButtons();
     </script>
 </body>
 </html>
