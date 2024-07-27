@@ -66,7 +66,7 @@ body {
     background-color: var(--inner-background-color);
     border: 2px solid var(--border-color);
     border-radius: 20px;
-    padding: 60px 20px 20px;
+    padding: 60px 20px 5px;
     transition: background-color 0.3s, border-color 0.3s;
     position: relative;
     box-sizing: border-box;
