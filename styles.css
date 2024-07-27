@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    margin: 0;
+    margin: 0px;
     overflow: hidden;
     background-color: var(--background-color);
     color: var(--text-color);
@@ -37,6 +37,8 @@ body {
 #contentContainer {
     display: flex;
     flex-direction: row;
+    margin: 0px;
+    padding: 0px;
     width: 100vw;
     height: 100vh;
     overflow: hidden; /* Hide scroll bars */
@@ -53,12 +55,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 0px;
     box-sizing: border-box;
 }
 
 .section-content {
-    width: 50%;
+    width: 100%;
     max-width: 300px; /* Reduced width */
     text-align: center;
     background-color: var(--inner-background-color);
@@ -262,7 +264,7 @@ p {
         background-color: var(--button-hover-bg-color);
     }
 
-@media (max-width: 600px) {
+/*@media (max-width: 600px) {
     #profilePicture img {
         width: 100px;
         height: 100px;
@@ -279,7 +281,7 @@ p {
 
     .banner {
         height: 70px; /* Shortened by 30px */
-    }
+    } */
 
     .short-banner {
         height: 35px; /* Shortened by 30px */
