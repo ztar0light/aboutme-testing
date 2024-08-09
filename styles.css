@@ -9,6 +9,21 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
+.scrollable-text-box::-webkit-scrollbar-track {
+    background: transparent;
+    right: 50px;
+}
+
+.scrollable-text-box::-webkit-scrollbar-thumb {
+    background: rgba(128, 128, 128, 0.5);
+    border-radius: 10px;
+    right: 50px;
+}
+
+    .scrollable-text-box::-webkit-scrollbar-thumb:hover {
+        background: rgba(128, 128, 128, 0.7);
+    }
+
 :root {
     --background-color: #f4f4f9;
     --text-color: #333;
@@ -16,7 +31,7 @@ body {
     --border-color: #a0b3c3;
     --banner-border-color: #8da0b3;
     --button-bg-color: #9eb0c7;
-    --button-text-color: #333;
+    --button-text-color: #444;
     --button-hover-bg-color: #9eb2cd;
     --inner-background-color: #e4e4e9;
     --highlight-color: #999;
@@ -33,6 +48,18 @@ body {
     --highlight-color: #666;
     --menu-highlight-color: #FFA500;
     --button-bg-color: #d4d4d4;
+}
+
+.lihold {
+    color: #ffea00;
+}
+
+.liactive {
+    color: #00ff05;
+}
+
+.lidropped {
+    color: #ff0000;
 }
 
 #contentContainer {
@@ -62,15 +89,36 @@ body {
 
 .section-content {
     width: 100%;
+    max-height: 600px;
     max-width: 300px;
     text-align: center;
     background-color: var(--inner-background-color);
     border: 2px solid var(--border-color);
     border-radius: 20px;
-    padding: 60px 20px 5px;
+    padding: 60px 0px 5px 5px;
     transition: background-color 0.3s, border-color 0.3s;
     position: relative;
     box-sizing: border-box;
+}
+
+.content-container {
+    text-align: center;
+    margin-left: 2px;
+    max-width: 300px;
+    width: 100%;
+    max-height: 400px;
+    background-color: var(--inner-background-color);
+    transition: background-color 0.3s, border-color 0.3s;
+    position: relative;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-color: rgba(128, 128, 128, 0.5) transparent;
+    scrollbar-width: thin;
+    scroll-margin: 15px;
+    top: -10px;
+    z-index: 98;
+    right: 2px;
 }
 
 .banner-container {
@@ -81,9 +129,11 @@ body {
     border-top-left-radius: 18px;
     border-top-right-radius: 18px;
     overflow: hidden;
+    z-index: 97;
 }
 
 .banner {
+    z-index: 98;
     width: 100%;
     height: 110px;
     background-color: var(--accent-color);
@@ -99,7 +149,7 @@ body {
 .namecard {
     font-size: 14px;
     border-radius: 7.5px;
-    margin: -15px 40px 0px;
+    margin: -15px 55px 0px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -115,6 +165,7 @@ body {
     position: relative;
     top: -40px;
     margin-bottom: -60px;
+    z-index: 98;
 }
 
     #profilePicture img {
@@ -237,15 +288,16 @@ p {
     position: absolute;
     top: 0;
     bottom: 0;
-    font-size: 30px;
+    font-size: 50px;
     color: var(--button-text-color);
     cursor: pointer;
-    width: 50px;
+    width: 65px;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: opacity 0.3s, background 0.3s;
     background: var(--button-bg-color);
+    z-index: 99;
 }
 
 [data-theme="dark"] .sideButton {
